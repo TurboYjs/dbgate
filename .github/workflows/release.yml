@@ -28,4 +28,4 @@ jobs:
       - name: copy builds to server
         run: |
           rsync -vrm   ./* ${{ secrets.USER_IP }}:/var/www/dbgate/
-          ssh ${{ secrets.USER_IP }} "cd /var/www/dbgate/ && yarn && yarn start:prod"
+          ssh ${{ secrets.USER_IP }} "nvm use 16 && cd /var/www/dbgate/ && yarn && yarn start:prod"
