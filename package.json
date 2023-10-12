@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "5.2.7",
+  "version": "0.0.1",
   "name": "dbgate-all",
   "workspaces": [
     "packages/*",
@@ -55,7 +55,8 @@
     "ts:web": "yarn workspace dbgate-web ts",
     "ts": "yarn ts:api && yarn ts:web",
     "postinstall": "yarn resetPackagedPlugins && yarn build:lib && patch-package && yarn fillNativeModules && yarn build:plugins:frontend",
-    "dbgate-serve": "node packages/dbgate/bin/dbgate-serve.js"
+    "dbgate-serve": "node packages/dbgate/bin/dbgate-serve.js",
+    "release": "bumpp package.json --commit --push --tag --all"
   },
   "dependencies": {
     "concurrently": "^5.1.0",
@@ -65,6 +66,7 @@
   "devDependencies": {
     "copyfiles": "^2.2.0",
     "prettier": "^2.2.1",
-    "workspaces-run": "^1.0.1"
+    "workspaces-run": "^1.0.1",
+    "bumpp": "9.1.1"
   }
 }
